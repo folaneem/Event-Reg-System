@@ -1,4 +1,4 @@
-// Contains the logo, tabs, and profile picture 
+
 import React, { useState } from 'react';
 import dots from '../assets/image/dots.png';
 import avatarImage from '../assets/image/avataaars (2).png';
@@ -8,7 +8,7 @@ function Header({ activeTab, setActiveTab }) {
 
   const toggleDropdown = () => {
     setDropdownVisible(!dropdownVisible);
-    console.log('Dropdown visibility:', !dropdownVisible); // Log the new visibility state
+    console.log('Dropdown visibility:', !dropdownVisible); 
   };
 
   return (

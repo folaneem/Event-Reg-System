@@ -1,7 +1,7 @@
 // Import required packages
 import express from 'express';
 import mongoose from 'mongoose';
-import cors from 'cors'; // Import the cors package
+import cors from 'cors';
 import User from './model/User.js';
 import bcrypt from 'bcryptjs';
 
@@ -11,8 +11,8 @@ const app = express();
 // Middleware to parse JSON requests
 app.use(express.json());
 
-// Enable CORS
-app.use(cors()); // Use CORS middleware
+//CORS
+app.use(cors());
 
 // Connect to MongoDB
 mongoose.connect('mongodb://127.0.0.1:27017/eventRegistration')
@@ -21,14 +21,14 @@ mongoose.connect('mongodb://127.0.0.1:27017/eventRegistration')
 
 // Define a basic route
 app.get('/', (req, res) => {
-    console.log('Route accessed: /'); // Log to console when the route is accessed
+    console.log('Route accessed: /');
     res.send('Welcome to the Event Registration API!');
 });
 
 // Signup route
 app.post('/signup', async (req, res) => {
     const { firstName, lastName, email, phoneNumber, password } = req.body;
-    console.log('Signup data:', req.body); // Log raw data
+    console.log('Signup data:', req.body); 
 
     try {
         const existingUser = await User.findOne({ email });
@@ -36,7 +36,7 @@ app.post('/signup', async (req, res) => {
             return res.status(400).json({ message: 'User already exists with this email.' });
         }
 
-        console.log('Plaintext password:', password); // Log before hashing
+        console.log('Plaintext password:', password); 
 
         const newUser = new User({ firstName, lastName, email, phoneNumber, password });
         await newUser.save();
@@ -51,7 +51,7 @@ app.post('/signup', async (req, res) => {
 // Login route
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
-    console.log('Login attempt:', req.body); // Log login data
+    console.log('Login attempt:', req.body); 
 
     if (!email || !password) {
         return res.status(400).json({ message: 'Email and password are required' });
@@ -98,7 +98,7 @@ app.post('/login', async (req, res) => {
 // // Call the test function
 // testPasswordHashing();
 
-// Set the server to listen on a specific port
+// Set the server
 const PORT = process.env.PORT || 5002;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

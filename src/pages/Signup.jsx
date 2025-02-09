@@ -11,16 +11,15 @@ function Signup() {
     phoneNumber: '',
     password: ''
   });
-  const [modalVisible, setModalVisible] = useState(false); // State to control modal visibility
-  const [modalMessage, setModalMessage] = useState(''); // State for modal message
-  const [emailError, setEmailError] = useState(''); // State for email error message
-  const [passwordVisible, setPasswordVisible] = useState(false); // State to toggle password visibilitypassword
+  const [modalVisible, setModalVisible] = useState(false); 
+  const [modalMessage, setModalMessage] = useState(''); 
+  const [emailError, setEmailError] = useState(''); 
+  const [passwordVisible, setPasswordVisible] = useState(false); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Submitting signup with data:', formData); // Log the form data
+    console.log('Submitting signup with data:', formData);
 
-    // Reset email error message
     setEmailError('');
 
     // Send a POST request to the signup endpoint
@@ -43,12 +42,11 @@ function Signup() {
         
         // Navigate to Login after 2 seconds
         setTimeout(() => {
-          navigate('/'); // Navigate to Login screen
+          navigate('/'); 
         }, 2000);
       } else {
-        // Handle signup error (e.g., show error message)
         if (data.message === 'User already exists with this email.') {
-          setEmailError('Email already exists'); // Set email error message
+          setEmailError('Email already exists'); 
         }
         console.error('Signup failed:', data.message);
       }
@@ -104,7 +102,7 @@ function Signup() {
               placeholder="@johndoe@gmail.com"
               className="p-3 bg-gray-50 rounded-lg placeholder-gray-400 text-sm"
             />
-            {emailError && <p className="text-red-500 text-sm">{emailError}</p>} {/* Error message */}
+            {emailError && <p className="text-red-500 text-sm">{emailError}</p>}
           </div>
 
           <div className="flex flex-col gap-1">

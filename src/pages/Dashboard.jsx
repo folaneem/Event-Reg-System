@@ -13,58 +13,59 @@ import event4 from '../assets/image/event4.png';
 const events = [
   {
     id: 1,
-    title: "Event Title",
-    description: "Join us for an immersive session on the latest trends in technology and innovation. Network with industry leaders and gain insights into future advancements.",
+    title: "AI & The Future of Work",
+    description: "Join top AI experts to discuss the impact of artificial intelligence on jobs, automation, and the workforce of tomorrow.",
     image: event1,
-    location: "Tech Innovation Center, 123 Main Street, Cityville",
-    date: "June 10, 2024",
-    time: "3:00 PM - 5:00 PM",
-    deadline: "May 10, 2024",
-    spotsLeft: 20
+    location: "Tech Innovation Hub, 123 Main Street, San Francisco",
+    date: "March 15, 2025",
+    time: "10:00 AM - 1:00 PM",
+    deadline: "March 10, 2025",
+    spotsLeft: 15
   },
   {
     id: 2,
-    title: "Event Title",
-    description: "Join us for an immersive session on the latest trends in technology and innovation. Network with industry leaders and gain insights into future advancements.",
+    title: "Startup Pitch Night",
+    description: "A night where startups showcase their ideas to investors and industry leaders. Get ready for groundbreaking innovations!",
     image: event2,
-    location: "Tech Innovation Center, 123 Main Street, Cityville",
-    date: "June 10, 2024",
-    time: "3:00 PM - 5:00 PM",
-    deadline: "May 10, 2024",
-    spotsLeft: 20
+    location: "Silicon Valley Incubator, Palo Alto",
+    date: "April 5, 2025",
+    time: "6:00 PM - 9:00 PM",
+    deadline: "March 25, 2025",
+    spotsLeft: 10
   },
   {
     id: 3,
-    title: "Event Title",
-    description: "Join us for an immersive session on the latest trends in technology and innovation. Network with industry leaders and gain insights into future advancements.",
+    title: "Wellness & Mindfulness Retreat",
+    description: "Take a break from your busy schedule and immerse yourself in meditation, yoga, and mindfulness practices.",
     image: event3,
-    location: "Tech Innovation Center, 123 Main Street, Cityville",
-    date: "June 10, 2024",
-    time: "3:00 PM - 5:00 PM",
-    deadline: "May 10, 2024",
-    spotsLeft: 20
+    location: "Serenity Spa & Resort, Colorado",
+    date: "May 20, 2025",
+    time: "8:00 AM - 6:00 PM",
+    deadline: "May 5, 2025",
+    spotsLeft: 30
   },
   {
     id: 4,
-    title: "Event Title",
-    description: "Join us for an immersive session on the latest trends in technology and innovation. Network with industry leaders and gain insights into future advancements.",
+    title: "Cybersecurity & Ethical Hacking Workshop",
+    description: "Learn the fundamentals of cybersecurity, ethical hacking, and how to protect digital assets in an ever-evolving cyber landscape.",
     image: event4,
-    location: "Tech Innovation Center, 123 Main Street, Cityville",
-    date: "June 10, 2024",
-    time: "3:00 PM - 5:00 PM",
-    deadline: "May 10, 2024",
-    spotsLeft: 20
+    location: "Virtual (Zoom Webinar)",
+    date: "June 12, 2025",
+    time: "2:00 PM - 5:00 PM",
+    deadline: "June 5, 2025",
+    spotsLeft: 25
   }
 ];
 
 
+
 function Dashboard() {
-  const [activeTab, setActiveTab] = useState('available'); // 'available' or 'registered'
+  const [activeTab, setActiveTab] = useState('available'); 
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [showCancelModal, setShowCancelModal] = useState(false);
-  const [availableEvents, setAvailableEvents] = useState(events); // Your initial available events
+  const [availableEvents, setAvailableEvents] = useState(events); 
   const [registeredEvents, setRegisteredEvents] = useState([]);
-  const [eventToCancel, setEventToCancel] = useState(null); // Store the event to be canceled
+  const [eventToCancel, setEventToCancel] = useState(null); 
 
 
   const handleRegister = () => {
@@ -73,12 +74,12 @@ function Dashboard() {
   };
 
   const handleRegisterEvent = (event) => {
-    console.log("Registering event:", event); // Check if this logs
+    console.log("Registering event:", event); 
     setAvailableEvents(prevEvents => prevEvents.filter(e => e.id !== event.id));
     setRegisteredEvents(prevRegistered => {
       const updatedRegistered = [...prevRegistered, event];
-      console.log("Event registered successfully:", updatedRegistered); // Log the updated registered events
-      handleRegister(); // Call to show success message
+      console.log("Event registered successfully:", updatedRegistered); 
+      handleRegister(); 
       return updatedRegistered;
     });
   };
@@ -91,15 +92,15 @@ function Dashboard() {
   };
 
   const handleCancelClick = (event) => {
-    setEventToCancel(event); // Store the event to be canceled
-    setShowCancelModal(true); // Show the modal
+    setEventToCancel(event); 
+    setShowCancelModal(true); 
   };
 
   const handleCancelConfirm = () => {
     if (eventToCancel) {
       setRegisteredEvents(prevRegistered => prevRegistered.filter(e => e.id !== eventToCancel.id));
       setAvailableEvents(prevAvailable => [...prevAvailable, eventToCancel]);
-      setShowCancelModal(false); // Close the modal
+      setShowCancelModal(false); 
     }
   };
 
@@ -132,7 +133,7 @@ function Dashboard() {
                     event={event}
                     activeTab={activeTab}
                     onRegister={handleRegisterEvent}
-                    onCancel={handleCancelClick} // Pass the cancel function
+                    onCancel={handleCancelClick} 
                   />
                 ))
               ) : (

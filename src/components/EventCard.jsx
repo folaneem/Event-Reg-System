@@ -1,4 +1,4 @@
-// Individual event card with image, details, and action button 
+
 
 function EventCard({ event, activeTab, onRegister, onCancel }) {
   return (

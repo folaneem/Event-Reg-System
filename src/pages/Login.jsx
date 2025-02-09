@@ -8,7 +8,7 @@ function Login() {
     email: '',
     password: ''
   });
-  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
+  const [showPassword, setShowPassword] = useState(false); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,10 +27,10 @@ function Login() {
       const data = await response.json();
       console.log(data);
       if (response.ok) {
-        // Handle successful login (e.g., navigate to dashboard)
+        // Handle successful login
         navigate('/dashboard');
       } else {
-        // Handle login error (e.g., show error message)
+        // Handle login error
         console.error('Login failed:', data.message);
       }
     } catch (error) {
@@ -68,7 +68,7 @@ function Login() {
             <label className="text-sm text-purple-900">Password</label>
             <div className="relative">
               <input
-                type={showPassword ? 'text' : 'password'} // Toggle between text and password
+                type={showPassword ? 'text' : 'password'}
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                 placeholder="must contain at least 8 characters"
@@ -76,7 +76,7 @@ function Login() {
               />
               <button
                 type="button"
-                onClick={() => setShowPassword(!showPassword)} // Toggle password visibility
+                onClick={() => setShowPassword(!showPassword)}
                 className="absolute right-3 top-1/2 -translate-y-1/2"
               >
                 {showPassword ? (

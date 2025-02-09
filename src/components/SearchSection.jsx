@@ -1,4 +1,4 @@
-// Contains the title, description and search input 
+
 
 function SearchSection({ activeTab, availableEvents, registeredEvents }) {
   return (
