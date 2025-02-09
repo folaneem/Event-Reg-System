@@ -122,7 +122,7 @@ function Signup() {
             <label className="text-sm text-purple-900">Password</label>
             <div className="relative">
               <input
-                type="password"
+                type={passwordVisible ? 'text' : 'password'}
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                 placeholder="must contain at least 8 characters"
