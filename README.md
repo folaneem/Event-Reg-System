@@ -90,6 +90,12 @@ Group F
    LCU/UG/22/22910 - Computer Science
 3. Williams Dennis Olusegun
    LCU/UG/21/19448
+4. Muawiya Muhammad Tambari 
+   Computer Science 
+   LCU/UG/22/23730
+5. Asamaowei Charles James Gesitari 
+   Computer Science 
+   LCU/UG/22/23867
 
 ## Course Information
 Coursecode: GST 306
