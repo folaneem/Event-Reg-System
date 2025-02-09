@@ -88,6 +88,8 @@ Group F
    LCU/UG/22/21837 - Computer Science
 2. Durodola Oluwamayowa Deborah
    LCU/UG/22/22910 - Computer Science
+3. Williams Dennis Olusegun
+   LCU/UG/21/19448
 
 ## Course Information
 Coursecode: GST 306
